@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://67fd5b353da09811b17581a8.mockapi.io/";
+axios.defaults.baseURL = import.meta.env.VITE_API_URL;;
 
 export const fetchContacts = createAsyncThunk(
   "contacts/fetchAll",
