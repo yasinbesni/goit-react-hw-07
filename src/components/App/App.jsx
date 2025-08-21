@@ -1,6 +1,6 @@
 import ContactForm from "../contactForm/ContactForm";
 import SearchBox from "../SearchBox/SearchBox";
-import ContactList from "../contactList/ContactList";
+import ContactList from "../ContactList/ContactList";
 import css from "./App.module.css";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
