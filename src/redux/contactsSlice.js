@@ -3,10 +3,11 @@ import { fetchContacts, addContact, deleteContact } from "./contactsOps";
 
 const handlePending = (state) => {
   state.isLoading = true;
+  state.error = null;
 };
 const handleRejected = (state, action) => {
   state.isLoading = false;
-  state.error = action.payload || action.error.message;
+  state.error = action.payload;
 };
 const contacts = createSlice({
   name: "contacts",
@@ -38,8 +39,9 @@ const contacts = createSlice({
   },
   
 });
-export default contacts.reducer;
+export const contactsReducer= contacts.reducer;
 
 export const selectContacts = (state) => state.contact.items;
 export const selectIsloading = (state) => state.contact.isLoading;
 export const selectError = (state) => state.contact.error;
+ 
