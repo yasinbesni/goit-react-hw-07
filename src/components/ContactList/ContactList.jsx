@@ -2,9 +2,12 @@ import { useSelector,useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contactsOps";
 import Contact from "../Contact/Contact";
 import css from "./ContactList.module.css";
+import { selectFilteredContacts } from "../../redux/contactsSlice";
 
 const ContactList = () => {
-  const contacts = useSelector((state) => state.contact.items);
+  
+  const contacts = useSelector(selectFilteredContacts);
+ // const contacts = useSelector((state) => state.contact.items);
   const dispatch = useDispatch();
   //const filter = useSelector((state) => state.filters.value);
 
@@ -13,13 +16,10 @@ const ContactList = () => {
   ); */
 
   return (
-     <ul className={css.list}>
-      {contacts.map(({ id, name, phone }) => (
-        <li key={id} className={css.item}>
-          <span>
-            {name}: {phone}
-          </span>
-          <button onClick={() => dispatch(deleteContact(id))}>Delete</button>
+      <ul className={css.list}>
+      {contacts.map(contact => (
+        <li key={contact.id} className={css.item}>
+          <Contact contact={contact} />
         </li>
       ))}
     </ul>
