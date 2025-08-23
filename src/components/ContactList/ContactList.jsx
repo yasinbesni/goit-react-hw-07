@@ -18,7 +18,7 @@ const ContactList = () => {
   return (
       <ul className={css.contactList}>
       {contacts.map(contact => (
-        <li key={contact.id} className={css.contactList}>
+        <li key={contact.id} className={css.matchesPTag}>
           <Contact contact={contact} />
         </li>
       ))}
