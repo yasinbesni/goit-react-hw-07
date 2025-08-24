@@ -7,21 +7,15 @@ import { selectFilteredContacts } from "../../redux/contactsSlice";
 const ContactList = () => {
   
   const contacts = useSelector(selectFilteredContacts);
- // const contacts = useSelector((state) => state.contact.items);
- // const dispatch = useDispatch();
-  //const filter = useSelector((state) => state.filters.value);
-
-  /* const filteredContacts = contacts.filter((contact) =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  ); */
+ 
 
   return (
       <ul className={css.contactList}>
-      {contacts.map(contact => (
-        <li key={contact.id} className={css.matchesPTag}>
-          <Contact contact={contact} />
-        </li>
-      ))}
+      {contacts.map(({ id, ...rest }) => (
+  <li key={id} className={css.matchesPTag}>
+    <Contact contact={{ id, ...rest }} />
+  </li>
+))}
     </ul>
   );
 };

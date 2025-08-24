@@ -40,11 +40,11 @@ const contacts = createSlice({
   },
   
 });
-export const contactsReducer= contacts.reducer;
+export default contacts.reducer;
 
-export const selectContacts = (state) => state.contact.items;
-export const selectIsloading = (state) => state.contact.isLoading;
-export const selectError = (state) => state.contact.error;
+export const selectContacts = (state) => state.contacts.items;
+export const selectIsloading = (state) => state.contacts.isLoading;
+export const selectError = (state) => state.contacts.error;
  
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
